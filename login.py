@@ -87,6 +87,19 @@ def create_account_window():
             messagebox.showerror("Error", "Passwords do not match.")
             return
 
+        # cjeclk if username already exists
+        try:
+            with open("data/users.txt", "r") as file:
+                for line in file:
+                    saved_username = line.strip().split(",")[0]
+                    if username == saved_username:
+                        messagebox.showerror("Error", "Username already exists", "Please choose a different username.")
+                        return
+        
+        # if file donesn't exist,
+        except FileNotFoundError:
+            pass 
+
         try:
             with open("data/users.txt", "a") as user_file:
                 user_file.write(f"{username},{full_name},{role}\n")
