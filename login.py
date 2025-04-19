@@ -1,6 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox
 
+
+def clear_window():
+    for widget in root.winfo_children():
+        widget.destory()
+
+
+
 def login_window():
 
     title = tk.Label(root, text="Student Profile Management System", font=("Arial", 14))
@@ -32,7 +39,6 @@ def login_window():
                     
         except FileNotFoundError:
             messagebox.showerror("Error", "User data file not found.")
-
 
     tk.Button(root, text="Login", command=login).pack(pady=10)
     tk.Button(root, text="Create Account").pack(pady=10)
