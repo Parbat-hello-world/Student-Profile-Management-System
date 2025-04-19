@@ -1,2 +1,3 @@
 Sayana,Sayana Tamang,Student
 Parbat,Parbat Magar,Student
+Tshering,Tshering Palden,Student
