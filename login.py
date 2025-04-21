@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
-
+from admin import AdminDashboard
+import os
 
 def clear_window():
     for widget in root.winfo_children():
@@ -46,7 +47,10 @@ def login_window():
 
                                         if username == file_username:
                                             if role == "Admin":
-                                                messagebox.showinfo("Login Sucessful","Admin Dashboard is under development")
+                                                clear_window()
+                                                admin_dashboard = AdminDashboard(root) # create an instance of AdminDashboard
+                                                root.withdraw() # Hide the login window
+                                                admin_dashboard.root.deiconify() # shwo the admin dashboard window
 
                                             else:
                                                 messagebox.showinfo("Login Sucessful","Student Dashboard is under development") 
