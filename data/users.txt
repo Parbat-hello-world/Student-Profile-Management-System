@@ -1,3 +1,5 @@
+Admin,Parbat Magar,Admin
 Sayana,Sayana Tamang,Student
 Parbat,Parbat Magar,Student
 Tshering,Tshering Palden,Student
+Steph,Stephen Curry,Student

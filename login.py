@@ -35,9 +35,27 @@ def login_window():
                     saved_username, saved_password = [item.strip() for item in line.strip().split(",")] 
 
                     if username == saved_username and password == saved_password:
-                        messagebox.showinfo("Login Sucessful",f"Welcome {username}! \n ")
-                        return
-                    
+
+                        try:
+                            with open("data/users.txt", "r") as user_file:
+                                for user_line in user_file:
+                                    user_data = user_line.strip().split(",")
+
+                                    if len(user_data) == 3:
+                                        file_username, fullname, role = [item.strip() for item in user_data]
+
+                                        if username == file_username:
+                                            if role == "Admin":
+                                                messagebox.showinfo("Login Sucessful","Admin Dashboard is under development")
+
+                                            else:
+                                                messagebox.showinfo("Login Sucessful","Student Dashboard is under development") 
+                                            return
+
+                        except FileNotFoundError:
+                            messagebox.showerror("Error", "User data file not found.")
+                            return
+
                 messagebox.showerror("Login Failed", "Invalid username or password")
                     
         except FileNotFoundError:
@@ -82,6 +100,7 @@ def create_account_window():
 
         if not username or not full_name or not password or not confirm_password or not role:
             messagebox.showerror("Error", "All fields are required.")
+            return
 
         if password != confirm_password:
             messagebox.showerror("Error", "Passwords do not match.")
@@ -93,7 +112,7 @@ def create_account_window():
                 for line in file:
                     saved_username = line.strip().split(",")[0]
                     if username == saved_username:
-                        messagebox.showerror("Error", "Username already exists", "Please choose a different username.")
+                        messagebox.showerror("Error", "Username already exists. Please choose a different username.")
                         return
         
         # if file donesn't exist,
