@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
+from update_user import show_update_user_screen
 import os
 
 class AdminDashboard:
@@ -198,7 +199,7 @@ class AdminDashboard:
         tk.Button(self.root, text="Back", command=self.manage_users).pack(pady=10)     
 
     def update_user(self):
-        messagebox.showinfo("Update User", "This feature is under development.")
+        show_update_user_screen(self.root, self.manage_users)
 
     def delete_user(self):
         messagebox.showinfo("Delete User", "This feature is under development.")
