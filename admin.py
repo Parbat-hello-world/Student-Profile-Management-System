@@ -36,8 +36,7 @@ class AdminDashboard:
         tk.Label(self.root, text="Manage Users", font=("Arial", 14)).pack(pady=20)
         tk.Button(self.root, text="View Users", command=self.view_users).pack(pady=10)
         tk.Button(self.root, text="Add User", command=self.add_user).pack(pady=10)
-        tk.Button(self.root, text="Update User", command=self.update_user).pack(pady=10)
-        tk.Button(self.root, text="Delete User", command=self.delete_user).pack(pady=10)
+        tk.Button(self.root, text="Update/Delete User", command=self.update_user).pack(pady=10)
         tk.Button(self.root, text="Back", command=self.show_dashboard).pack(pady=10) # back button to go back to the dashboard
 
 
@@ -200,9 +199,6 @@ class AdminDashboard:
 
     def update_user(self):
         show_update_user_screen(self.root, self.manage_users)
-
-    def delete_user(self):
-        messagebox.showinfo("Delete User", "This feature is under development.")
 
 if __name__ == "__main__":
     root = tk.Tk()
