@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 from update_user import show_update_user_screen
+from course import show_course_screen
 import os
 
 class AdminDashboard:
@@ -41,9 +42,8 @@ class AdminDashboard:
 
 
     def manage_courses(self):
-
-        # self.clear_window()
-        messagebox.showinfo("Manage Courses", "This feature is under development.")
+        self.clear_window()
+        show_course_screen(self.root, self.show_dashboard)
 
     def exit(self):
         self.root.quit()
